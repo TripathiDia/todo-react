@@ -1,19 +1,13 @@
 import React, { useState } from "react";
 
-function TodoForm({ addTodo }) {
+function TodoForm() {
   const [input, setInput] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    //         props.onSubmit({
-    //             id: Math.floor(Math.random() * 10000),
-    //             text: input
-    //           });
     if (input.trim() !== "") {
-      addTodo({
-        id: Math.floor(Math.random() * 10000),
-        text: input.trim(),
-      });
+      console.log("New todo:", { id: Math.floor(Math.random() * 10000), text: input.trim() });
+
       setInput("");
     }
   };
@@ -24,7 +18,7 @@ function TodoForm({ addTodo }) {
         type="text"
         placeholder="Add a todo"
         value={input}
-        onChange={(e) => setInput(e.target.value)} //added
+        onChange={(e) => setInput(e.target.value)}
         name="text"
         className="todo-input"
       />
